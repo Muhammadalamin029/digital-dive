@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 const Blogs = ({ isHome = false }) => {
   const [blogs, setBlogs] = useState([]);
+  const [imgUrl, setImgUrl] = useState();
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -37,7 +38,14 @@ const Blogs = ({ isHome = false }) => {
       {blogs.map((blog) => (
         <div key={blog.id} className="blog-container">
           <div className="blog-item">
-            <div className="blog-image"></div>
+            <div
+              style={{
+                backgroundImage: `url(${blog.imgUrl})`,
+              }}
+              className="blog-image"
+            >
+              <img src="vite.svg" alt="" />
+            </div>
             <div className="blog-content">
               <div className="author">
                 <div className="img"></div>

@@ -45,9 +45,9 @@ header {
   height: 80vh;
   position: relative;
   color: #ffffff;
-  background-image: url(../src/assets/Images/Tech\ BG.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 .overlay {
@@ -168,7 +168,6 @@ textarea {
 /* Blogs Page */
 
 .blog-image {
-  background: url(./assets/Images/5G.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -234,7 +233,7 @@ textarea {
   height: 350px;
   position: relative;
   color: #ffffff;
-  background-image: url(../src/assets/Images/CTA.jpg);
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }

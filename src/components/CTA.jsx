@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 
 const CTA = () => {
   return (
-    <section className="CTA d-flex justify-content-center align-items-center">
+    <section
+      style={{
+        backgroundImage: `url(Images/CTA.jpg)`,
+      }}
+      className="CTA d-flex justify-content-center align-items-center"
+    >
       <span className="overlay"></span>
       <div className="CTA-content text-center">
         <h1>Ready to dive deeper into the world of technology?</h1>

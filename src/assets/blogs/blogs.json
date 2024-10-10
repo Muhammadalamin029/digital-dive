@@ -8,7 +8,8 @@
       "publishDate": "Sep 4",
       "authorName": "Aisha",
       "authorEmail": "",
-      "authorPhone": ""
+      "authorPhone": "",
+      "imgUrl": "Images/5G.jpg"
     },
     {
       "id": "2",
@@ -18,7 +19,8 @@
       "publishDate": "2024-10-10",
       "authorName": "Swag GPT",
       "authorEmail": "mmuhammadalameen9@gmail.com",
-      "authorPhone": "34567890"
+      "authorPhone": "34567890",
+      "imgUrl": "Images/Tech.jpg"
     },
     {
       "id": "9ed1",
