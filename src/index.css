@@ -320,9 +320,17 @@ textarea {
   text-align: center;
 }
 
+.authorDetails span {
+  font-weight: 700;
+}
+
 @media (max-width: 768px) {
   form {
     width: 100%;
+  }
+
+  .section {
+    padding: 10px 15px;
   }
   .icons .a {
     margin: 0 30px;

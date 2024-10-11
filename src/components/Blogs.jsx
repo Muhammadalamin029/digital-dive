@@ -40,7 +40,7 @@ const Blogs = ({ isHome = false }) => {
           <div className="blog-item">
             <div
               style={{
-                backgroundImage: `url(${blog.imgUrl})`,
+                backgroundImage: `url(Images/Blog.jpg)`,
               }}
               className="blog-image"
             >

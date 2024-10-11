@@ -29,7 +29,18 @@ const Blog = () => {
       <br />
       <br />
       <Markdown>{blog.content}</Markdown>
-      <div className="comments"></div>
+      <div className="authorDetails">
+        <h2>Author details</h2>
+        <p>
+          <span>Name:</span> {blog.authorName}
+        </p>
+        <p>
+          <span>Email:</span> {blog.authorEmail}
+        </p>
+        <p>
+          <span>Phone Number:</span> {blog.authorPhone}
+        </p>
+      </div>
     </section>
   );
 };
