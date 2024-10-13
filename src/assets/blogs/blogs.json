@@ -18,7 +18,15 @@
       "publishDate": "2024-10-10",
       "authorName": "Aminu musa",
       "authorEmail": "mmuhammadalameen9@gmail.com",
-      "authorPhone": "09028626260"
+      "authorPhone": "09028626260",
+      "comments": [
+        {
+          "message": "Hello"
+        },
+        {
+          "message": "Hey"
+        }
+      ]
     },
     {
       "id": "5543",
@@ -39,6 +47,17 @@
       "authorName": "Num code",
       "authorEmail": "numcode@gmail.com",
       "authorPhone": "090736626"
+    },
+    {
+      "id": "a953",
+      "title": "HEy",
+      "category": "web-dev",
+      "content": "nm,.;ihjk",
+      "publishDate": "2020-06-06",
+      "authorName": "Amenue",
+      "authorEmail": "mmuhammadalameen9@gmail.com",
+      "authorPhone": "23456789",
+      "comments": []
     }
   ]
 }

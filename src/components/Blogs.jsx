@@ -38,12 +38,7 @@ const Blogs = ({ isHome = false }) => {
       {blogs.map((blog) => (
         <div key={blog.id} className="blog-container">
           <div className="blog-item">
-            <div
-              style={{
-                backgroundImage: `url(Images/Blog.jpg)`,
-              }}
-              className="blog-image"
-            >
+            <div className="blog-image">
               <img src="vite.svg" alt="" />
             </div>
             <div className="blog-content">

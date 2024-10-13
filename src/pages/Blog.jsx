@@ -15,8 +15,6 @@ const Blog = () => {
         setBlog(data);
       } catch (error) {
         console.error(error);
-      } finally {
-        console.log(blog);
       }
     };
 
@@ -25,6 +23,9 @@ const Blog = () => {
 
   return (
     <section className="section">
+      <div className="blog-image"></div>
+      <br />
+      <br />
       <h1>{blog.title} </h1>
       <br />
       <br />

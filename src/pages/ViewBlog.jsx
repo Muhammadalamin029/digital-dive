@@ -37,7 +37,6 @@ const ViewBlog = () => {
       <p>{submitRef.current.category}</p>
       <h3>Blog content</h3>
       <Markdown>{submitRef.current.content}</Markdown>
-      <h2>More information on {submitRef.current.title}</h2>
       <button onClick={handleClick} className="btn button">
         PUBLISH
       </button>
