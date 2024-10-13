@@ -7,25 +7,11 @@ const ViewBlog = () => {
   const submitRef = useContext(BlogContext);
 
   const navigate = useNavigate();
-  const submitData = async (data) => {
-    try {
-      const res = await fetch("http://localhost:8000/blogs/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-    } catch (error) {
-      console.error(error);
-    }
-    return;
-  };
 
-  const handleClick = () => {
-    navigate("/blogs");
-    submitData(submitRef.current);
-  };
+  // const handleClick = () => {
+  //   navigate("/blogs");
+  //   submitData(submitRef.current);
+  // };
 
   return (
     <section className="section">
@@ -37,9 +23,7 @@ const ViewBlog = () => {
       <p>{submitRef.current.category}</p>
       <h3>Blog content</h3>
       <Markdown>{submitRef.current.content}</Markdown>
-      <button onClick={handleClick} className="btn button">
-        PUBLISH
-      </button>
+      <button className="btn button">PUBLISH</button>
     </section>
   );
 };

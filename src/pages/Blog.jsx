@@ -37,15 +37,15 @@ const Blog = () => {
   );
 };
 
-const blogLoader = async ({ params }) => {
-  const api = `http://localhost:8000/blogs/${params.id}`;
-  try {
-    const response = await fetch(api);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
-};
+// const blogLoader = async ({ params }) => {
+//   const api = `http://localhost:8000/blogs/${params.id}`;
+//   try {
+//     const response = await fetch(api);
+//     const data = await response.json();
+//     return data;
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
 
-export { Blog as default, blogLoader };
+export { Blog as default };

@@ -25,8 +25,6 @@ const Blogs = ({ isHome = false }) => {
     } catch (error) {
       console.error(error);
     }
-
-    // data.docs.map((doc) => console.log({ ...doc.data }));
   };
 
   useEffect(() => {
