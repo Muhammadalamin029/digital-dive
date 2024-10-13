@@ -224,8 +224,13 @@ textarea {
 }
 
 .link {
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
+}
+
+.link span {
+  margin: 0 5px;
 }
 
 .link a {
