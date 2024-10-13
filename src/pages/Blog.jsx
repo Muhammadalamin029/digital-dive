@@ -2,6 +2,8 @@ import React from "react";
 import { FaArrowLeft } from "react-icons/fa6";
 import Markdown from "react-markdown";
 import { useParams, useLoaderData, Link } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../config/Firebase";
 
 const Blog = () => {
   const { id } = useParams();
@@ -37,15 +39,14 @@ const Blog = () => {
   );
 };
 
-// const blogLoader = async ({ params }) => {
-//   const api = `http://localhost:8000/blogs/${params.id}`;
-//   try {
-//     const response = await fetch(api);
-//     const data = await response.json();
-//     return data;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
+const blogLoader = async ({ params }) => {
+  try {
+    const blogRef = doc(db, "blogs", params.id);
+    const data = await getDoc(blogRef);
+    return data.data();
+  } catch (error) {
+    console.error(error);
+  }
+};
 
-export { Blog as default };
+export { Blog as default, blogLoader };

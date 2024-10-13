@@ -11,6 +11,7 @@ import AddBlog from "./pages/AddBlog";
 import NotFound from "./pages/NotFound";
 import ViewBlog from "./pages/ViewBlog";
 import Blog from "./pages/Blog";
+import { blogLoader } from "./pages/Blog";
 
 function App() {
   const router = createBrowserRouter(
@@ -18,7 +19,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route path="" element={<HomePage />} />
         <Route path="blogs" element={<BlogPage />} />
-        <Route path="blogs/:id" element={<Blog />} />
+        <Route path="blogs/:id" element={<Blog />} loader={blogLoader} />
         <Route path="add-blog/" element={<AddBlog />} />
         <Route path="add-blog/view" element={<ViewBlog />} />
         <Route path="*" element={<NotFound />} />
