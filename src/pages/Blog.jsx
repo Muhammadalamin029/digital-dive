@@ -1,28 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { FaArrowLeft } from "react-icons/fa6";
 import Markdown from "react-markdown";
-import { useParams } from "react-router-dom";
+import { useParams, useLoaderData, Link } from "react-router-dom";
 
 const Blog = () => {
   const { id } = useParams();
-  const [blog, setBlog] = useState({});
-
-  useEffect(() => {
-    const fetchBlog = async () => {
-      const api = `http://localhost:8000/blogs/${id}`;
-      try {
-        const response = await fetch(api);
-        const data = await response.json();
-        setBlog(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchBlog();
-  }, []);
+  const blog = useLoaderData();
 
   return (
     <section className="section">
+      <Link className="back-link" to="/blogs">
+        <FaArrowLeft /> Back to blog page
+      </Link>
+      <br />
+      <br />
       <div className="blog-image"></div>
       <br />
       <br />
@@ -46,4 +37,15 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+const blogLoader = async ({ params }) => {
+  const api = `http://localhost:8000/blogs/${params.id}`;
+  try {
+    const response = await fetch(api);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export { Blog as default, blogLoader };

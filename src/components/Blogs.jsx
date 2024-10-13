@@ -5,6 +5,8 @@ const Blogs = ({ isHome = false }) => {
   const [blogs, setBlogs] = useState([]);
   const [imgUrl, setImgUrl] = useState();
 
+  const location = window.location.href;
+
   useEffect(() => {
     const fetchBlogs = async () => {
       const api = isHome
@@ -52,6 +54,13 @@ const Blogs = ({ isHome = false }) => {
               <h1 className="blog-headline">{blog.title}</h1>
               <p className="link">
                 <Link>Add comments</Link>
+                <Link
+                  onClick={() =>
+                    navigator.clipboard.writeText(`${location}/${blog.id}`)
+                  }
+                >
+                  Share
+                </Link>
                 <Link to={`/blogs/${blog.id}`}>Read more</Link>
               </p>
             </div>

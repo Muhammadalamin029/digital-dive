@@ -27,6 +27,11 @@ h3 {
   padding: 10px;
 }
 
+.back-link {
+  text-decoration: none;
+  margin: 0 5px;
+}
+
 nav {
   background: #007bff !important;
   padding: 10px 40px !important;
@@ -48,6 +53,7 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-image: url("./assets/Images/BG.jpg");
 }
 
 .overlay {
@@ -237,6 +243,7 @@ textarea {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-image: url("./assets/Images/CTA.jpg");
 }
 
 .CTA-content {

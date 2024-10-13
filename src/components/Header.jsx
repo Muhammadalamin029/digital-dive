@@ -3,12 +3,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header
-      style={{
-        backgroundImage: `url(Images/BG.jpg)`,
-      }}
-      className="d-flex justify-content-center align-items-center"
-    >
+    <header className="d-flex justify-content-center align-items-center">
       <span className="overlay"></span>
       <div className="text-center header-content">
         <h1>Your go-to destination for all things tech</h1>
