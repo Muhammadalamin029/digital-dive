@@ -78,7 +78,8 @@ const Blogs = ({ isHome = false }) => {
                       toast.success("Link Copied!!!");
                     }}
                   >
-                    <span>Share</span> <FaShare />
+                    <span>Share</span>
+                    <FaShare />
                   </Link>
                   <Link to={`/blogs/${blog.id}`}>
                     <span>Readmore</span>

@@ -130,6 +130,8 @@ form {
 
 .error {
   color: red;
+  font-weight: 550;
+  font-size: 1.05rem;
   text-align: left;
   margin: 0;
 }
@@ -272,7 +274,7 @@ textarea {
 }
 
 .icons {
-  margin: 25px;
+  margin: 25px 0;
 }
 
 .icons .a {
@@ -338,7 +340,7 @@ textarea {
 }
 
 @media (max-width: 768px) {
-  .modal-content {
+  .modal .modal-content {
     width: 100%;
   }
 
@@ -368,5 +370,10 @@ textarea {
 
   .author-details p {
     font-size: 1rem;
+  }
+
+  .link a {
+    font-size: 0.8rem;
+    font-weight: 500;
   }
 }
