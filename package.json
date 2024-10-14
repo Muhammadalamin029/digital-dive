@@ -7,14 +7,12 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "server": "json-server --watch src/assets/blogs/blogs.json --port 8000"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
     "bootstrap": "^5.3.3",
     "firebase": "^10.14.1",
-    "json-server": "^1.0.0-beta.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.0",

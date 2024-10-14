@@ -230,7 +230,7 @@ textarea {
 }
 
 .link span {
-  margin: 0 5px;
+  margin-right: 5px;
 }
 
 .link a {
@@ -338,6 +338,10 @@ textarea {
 }
 
 @media (max-width: 768px) {
+  .modal-content {
+    width: 100%;
+  }
+
   form {
     width: 100%;
   }
