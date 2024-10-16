@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaComment, FaReadme, FaShare } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/ReactToastify.css";
+import { toast } from "react-hot-toast";
 import { db } from "../config/Firebase";
 import { getDocs, collection } from "firebase/firestore";
 import Loader from "./Loader";
@@ -72,7 +71,6 @@ const Blogs = ({ isHome = false }) => {
                 <h1 className="blog-headline">{blog.title}</h1>
                 <p className="link">
                   <Link>
-                    <ToastContainer />
                     <span>Comment</span> <FaComment />
                   </Link>
                   <Link

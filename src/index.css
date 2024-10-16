@@ -32,6 +32,12 @@ h3 {
   margin: 0 5px;
 }
 
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 nav {
   background: #007bff !important;
   padding: 10px 40px !important;
@@ -405,6 +411,91 @@ textarea {
   font-size: 1.1rem;
 }
 
+/* Welcome Page */
+
+#welcome-header {
+  color: #007bff;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+#welcome-header h1 {
+  font-size: 4rem;
+}
+
+/* Features section */
+
+#features-sec {
+  padding: 20px 0;
+  text-align: center;
+  background: #007bff;
+  color: #ffffff;
+}
+
+#features-sec h2 {
+  font-size: 2.5rem;
+}
+
+.features {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}
+
+.features figure {
+  text-align: center;
+  font-size: 22px;
+}
+
+.features .feature-icon {
+  font-size: 40px;
+  margin: 15px 0;
+}
+
+/* CTA Section */
+
+#welcome-CTA {
+  color: #007bff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 300px;
+}
+
+.welcome-header {
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+.welcome-subheader {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.CTA-btn {
+  background: #007bff;
+  border: #007bff 2px solid;
+  width: 10rem;
+  height: 3rem;
+  border-radius: 25px;
+  color: #ffffff;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.CTA-btn:hover {
+  border: #007bff 2px solid;
+}
+
 @media (max-width: 768px) {
   .modal .modal-content {
     width: 100%;
@@ -441,5 +532,9 @@ textarea {
   .link a {
     font-size: 0.8rem;
     font-weight: 500;
+  }
+
+  #welcome-header h1 {
+    font-size: 3rem;
   }
 }

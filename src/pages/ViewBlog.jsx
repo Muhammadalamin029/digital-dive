@@ -5,13 +5,13 @@ import { useNavigate } from "react-router-dom";
 import { addDoc, collection } from "firebase/firestore";
 import { db, storage } from "../config/Firebase";
 import { ref, uploadBytes } from "firebase/storage";
-import { toast, ToastContainer } from "react-toastify";
+import toast from "react-hot-toast";
 
 const ViewBlog = () => {
   const [blogImage, setBlogImage] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const submitRef = useContext(BlogContext);
+  const { submitRef } = useContext(BlogContext);
 
   const blogDataRef = collection(db, "blogs");
 
@@ -40,7 +40,6 @@ const ViewBlog = () => {
 
   return (
     <section className="section">
-      <ToastContainer />
       <h1>View Blog</h1>
       <p>Here is a preview of your blog before publish.</p>
       <label htmlFor="blogImage">Upload an image for the blog post: </label>

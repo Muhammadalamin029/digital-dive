@@ -5,7 +5,7 @@ import { BlogContext } from "../context/BlogContextProvider";
 import Modal from "./Modal";
 
 const Form = () => {
-  const submitRef = useContext(BlogContext);
+  const { submitRef } = useContext(BlogContext);
   const [modal, setModal] = useState(false);
 
   const {
