@@ -4,6 +4,7 @@ import Markdown from "react-markdown";
 import { Link } from "react-router-dom";
 import { FaX } from "react-icons/fa6";
 import { ClipLoader } from "react-spinners";
+import Loader from "./Loader";
 
 const Modal = ({ setModal }) => {
   const [inputPrompt, setInputPrompt] = useState("");
@@ -65,13 +66,7 @@ const Modal = ({ setModal }) => {
 
         <div className="res">
           {loading ? (
-            <ClipLoader
-              size={100}
-              height="80"
-              width="80"
-              color="white"
-              ariaLabel="loading"
-            />
+            <Loader />
           ) : (
             <div className={generated ? "" : "response-div"}>
               <Markdown>{aiResponse}</Markdown>

@@ -9,7 +9,7 @@ const Navbar = () => {
       style={{ background: "#000000" }}
     >
       <div className="container-fluid">
-        <Link className="navbar-brand" to="#">
+        <Link className="navbar-brand" to="/">
           Digital Dive
         </Link>
         <button

@@ -36,7 +36,7 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form id="publishForm" onSubmit={handleSubmit(onSubmit)}>
       <h1>Add Blog</h1>
       <div className="input-field">
         <input

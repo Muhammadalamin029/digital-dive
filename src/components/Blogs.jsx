@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/ReactToastify.css";
 import { db } from "../config/Firebase";
 import { getDocs, collection } from "firebase/firestore";
+import Loader from "./Loader";
 
 const Blogs = ({ isHome = false }) => {
   const [blogs, setBlogs] = useState([]);
@@ -46,13 +47,15 @@ const Blogs = ({ isHome = false }) => {
     fontSize: "3rem",
   };
 
+  const allBlogs = isHome ? blogs.splice(0, 3) : blogs;
+
   return (
     <section id="blog">
       <div className="heading">
         <h2 style={style}>{isHome ? "Latest Blogs" : "All Blog"}</h2>
       </div>
       {loading ? (
-        blogs.map((blog) => (
+        allBlogs.map((blog) => (
           <div key={blog.id} className="blog-container">
             <div className="blog-item">
               <div className="blog-image">
@@ -91,7 +94,7 @@ const Blogs = ({ isHome = false }) => {
           </div>
         ))
       ) : (
-        <h2>Loading</h2>
+        <Loader />
       )}
     </section>
   );
