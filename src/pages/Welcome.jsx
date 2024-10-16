@@ -10,7 +10,9 @@ const Welcome = () => {
       <section className="section" id="welcome-header">
         <h1 className="welcome-header">Welcome to Digital Dive</h1>
         <h3 className="welcome-subheader">Explore the Depths of Technology</h3>
-        <Link className="CTA-btn btn">Get Started</Link>
+        <Link className="CTA-btn btn" to="/login">
+          Get Started
+        </Link>
       </section>
       <section id="features-sec">
         <h2>Unlock Exclusive Contents</h2>
@@ -38,7 +40,7 @@ const Welcome = () => {
       <section className="section" id="welcome-CTA">
         <h2 className="welcome-header">Your Tech Journey Starts Here</h2>
         <h3 className="welcome-subheader">Dive Into Innovation</h3>
-        <Link className="btn CTA-btn" href="/login">
+        <Link className="btn CTA-btn" to="/login">
           Get Started
         </Link>
       </section>

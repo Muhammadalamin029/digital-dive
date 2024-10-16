@@ -450,6 +450,7 @@ textarea {
 .features figure {
   text-align: center;
   font-size: 22px;
+  padding: 0 10px;
 }
 
 .features .feature-icon {
