@@ -1,5 +1,5 @@
 import { sendPasswordResetEmail } from "firebase/auth";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { auth } from "../../config/Firebase";
@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 
 const ForgetPassword = () => {
+  const [loading, setLoading] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -19,12 +21,18 @@ const ForgetPassword = () => {
 
   const onSubmit = async (data) => {
     const { email } = data;
-    const res = await toast.promise(sendPasswordResetEmail(auth, email), {
-      loading: "Sending email",
-      success: "Email succesfully sent",
-      error: "Email not found",
-    });
-    console.log(res);
+    try {
+      setLoading(true);
+      await toast.promise(sendPasswordResetEmail(auth, email), {
+        loading: "Sending email",
+        success: "Email succesfully sent",
+        error: "Email not found",
+      });
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   };
   return (
     <section id="form">
@@ -47,7 +55,9 @@ const ForgetPassword = () => {
               <div className="error">{errors.email.message}</div>
             )}
           </div>
-          <button className="btn">Reset Password</button>
+          <button disabled={loading} className="btn">
+            Reset Password
+          </button>
           <br />
         </form>
       </div>
