@@ -20,6 +20,7 @@ import { Toaster } from "react-hot-toast";
 import AuthProtectedRoute from "../src/AuthProtectedRoute";
 import Practice from "./Practice";
 import UserProfile, { generateUserDetails } from "./pages/UserProfile";
+import ForgetPassword from "./pages/auth/ForgetPassword";
 
 function App() {
   const router = createBrowserRouter(
@@ -30,6 +31,7 @@ function App() {
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signUp" element={<SignUp />} />
+          <Route path="/login/forget-password" element={<ForgetPassword />} />
         </Route>
         <Route element={<ProtectedRoute />}>
           <Route path="/" element={<Layout />}>

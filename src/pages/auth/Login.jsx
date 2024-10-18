@@ -80,7 +80,7 @@ const Login = () => {
             {errors.password && (
               <div className="error">{errors.password.message}</div>
             )}
-            <Link>Forgotten password</Link>
+            <Link to="/login/forget-password">Forgotten password</Link>
           </div>
           <button disabled={loading} className="btn">
             Login
