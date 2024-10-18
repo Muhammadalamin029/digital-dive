@@ -66,7 +66,13 @@ const Modal = ({ setModal }) => {
 
         <div className="res">
           {loading ? (
-            <Loader />
+            <ClipLoader
+              size={100}
+              height="80"
+              width="80"
+              color="#ffffff"
+              ariaLabel="loading"
+            />
           ) : (
             <div className={generated ? "" : "response-div"}>
               <Markdown>{aiResponse}</Markdown>

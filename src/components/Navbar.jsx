@@ -42,7 +42,7 @@ const Navbar = () => {
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/user">
-                User
+                Profile
               </NavLink>
             </li>
           </ul>

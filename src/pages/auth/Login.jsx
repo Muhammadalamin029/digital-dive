@@ -1,14 +1,11 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { auth } from "../../config/Firebase";
 import toast from "react-hot-toast";
-import { BlogContext } from "../../context/BlogContextProvider";
 
 const Login = () => {
-  const { setUser } = useContext(BlogContext);
-
   const [loading, setLoading] = useState(false);
 
   const {
@@ -27,17 +24,11 @@ const Login = () => {
     const { email, password } = data;
     try {
       setLoading(true);
-      const res = await toast.promise(
-        signInWithEmailAndPassword(auth, email, password),
-        {
-          loading: "Logging in",
-          success: "User successfully Logged in",
-          error: "an error occured",
-        }
-      );
-      if (res) {
-        setUser(true);
-      }
+      await toast.promise(signInWithEmailAndPassword(auth, email, password), {
+        loading: "Logging in",
+        success: "User successfully Logged in",
+        error: "an error occured",
+      });
     } catch (error) {
       console.log(error);
     } finally {

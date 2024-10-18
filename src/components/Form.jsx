@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { BlogContext } from "../context/BlogContextProvider";
 import Modal from "./Modal";
-import { auth } from "../config/Firebase";
 
 const Form = () => {
   const { submitRef, userData } = useContext(BlogContext);

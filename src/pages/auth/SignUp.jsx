@@ -1,15 +1,12 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { auth, db } from "../../config/Firebase";
 import toast from "react-hot-toast";
-import { BlogContext } from "../../context/BlogContextProvider";
 import { doc, setDoc } from "firebase/firestore";
 
 const SignUp = () => {
-  const { setUser } = useContext(BlogContext);
-
   const [loading, setLoading] = useState(false);
 
   const {
@@ -48,7 +45,6 @@ const SignUp = () => {
           username,
           email,
         });
-        setUser(true);
       }
     } catch (error) {
       console.log(error);

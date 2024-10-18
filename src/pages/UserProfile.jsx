@@ -2,40 +2,30 @@ import React, { useContext } from "react";
 import { auth, db } from "../config/Firebase";
 import { signOut } from "firebase/auth";
 import { BlogContext } from "../context/BlogContextProvider";
-import { useEffect } from "react";
 import { doc, getDoc } from "firebase/firestore";
+import { useLoaderData } from "react-router-dom";
 
 const UserProfile = () => {
-  const { setUser, userData, setUserData } = useContext(BlogContext);
+  const { userData, setUserData } = useContext(BlogContext);
+  const data = useLoaderData();
+
+  setUserData(data);
 
   const handleLogOut = async () => {
     try {
       await signOut(auth);
     } catch (error) {
       console.log(error);
-    } finally {
-      setUser(false);
     }
   };
 
-  useEffect(() => {
-    const generateUserDetails = async () => {
-      try {
-        const user = await getDoc(doc(db, "Users", auth.currentUser.uid));
-        setUserData(user.data());
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    generateUserDetails();
-  }, []);
-
   return (
     <section className="section">
-      <h1>{userData.fullName}</h1>
-      <h3>@{userData.username}</h3>
-      <h2>{userData.email}</h2>
+      <div className="user-data">
+        <h1>{userData.fullName}</h1>
+        <p className="user-details username">@{userData.username}</p>
+        <p className="user-details">{userData.email}</p>
+      </div>
       <button className="btn button" onClick={handleLogOut}>
         Logout
       </button>
@@ -43,4 +33,13 @@ const UserProfile = () => {
   );
 };
 
-export default UserProfile;
+const generateUserDetails = async () => {
+  try {
+    const user = await getDoc(doc(db, "Users", auth.currentUser.uid));
+    return user.data();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export { UserProfile as default, generateUserDetails };

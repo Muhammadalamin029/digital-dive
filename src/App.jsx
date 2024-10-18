@@ -19,7 +19,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import { Toaster } from "react-hot-toast";
 import AuthProtectedRoute from "../src/AuthProtectedRoute";
 import Practice from "./Practice";
-import UserProfile from "./pages/UserProfile";
+import UserProfile, { generateUserDetails } from "./pages/UserProfile";
 
 function App() {
   const router = createBrowserRouter(
@@ -38,7 +38,11 @@ function App() {
             <Route path="blogs/:id" element={<Blog />} loader={blogLoader} />
             <Route path="add-blog/" element={<AddBlog />} />
             <Route path="add-blog/view" element={<ViewBlog />} />
-            <Route path="user" element={<UserProfile />} />
+            <Route
+              path="user"
+              element={<UserProfile />}
+              loader={generateUserDetails}
+            />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Route>
