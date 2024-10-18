@@ -375,20 +375,38 @@ textarea {
 }
 
 .form-container .auth-input {
+  position: relative;
   text-align: left;
   margin: 20px 0;
   width: 100%;
 }
 
 .auth-input input {
+  display: inline-block;
   padding: 0 5px;
   width: 100%;
   height: 50px;
   border: solid 2px #564f4f;
 }
 
+input.password {
+  width: 85%;
+}
+
+.show-Password {
+  position: absolute;
+  display: inline-flex;
+  right: 0;
+  width: 14%;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  border: solid 2px #564f4f;
+  cursor: pointer;
+}
+
 .form-container button {
-  width: 100%;
+  width: 75%;
   background: #007bff;
   color: #ffffff;
   font-size: 1.1rem;

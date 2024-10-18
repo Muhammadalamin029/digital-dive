@@ -4,9 +4,11 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { auth } from "../../config/Firebase";
 import toast from "react-hot-toast";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const {
     register,
@@ -38,6 +40,10 @@ const Login = () => {
     reset();
   };
 
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <section id="form">
       <div className="form-container">
@@ -57,16 +63,20 @@ const Login = () => {
           </div>
           <div className="auth-input">
             <input
-              type="password"
+              className="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
               {...register("password", {
                 required: "Password cannot be empty!!",
                 minLength: {
                   value: 8,
-                  message: "Password must contain 8 characters",
+                  message: "Password must contain 8 characters!!",
                 },
               })}
             />
+            <div onClick={handleShowPassword} className="show-Password">
+              {showPassword ? <FaEye /> : <FaEyeSlash />}
+            </div>
             {errors.password && (
               <div className="error">{errors.password.message}</div>
             )}

@@ -5,9 +5,11 @@ import { Link } from "react-router-dom";
 import { auth, db } from "../../config/Firebase";
 import toast from "react-hot-toast";
 import { doc, setDoc } from "firebase/firestore";
+import { FaEye, FaEyeDropper, FaEyeSlash } from "react-icons/fa";
 
 const SignUp = () => {
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const {
     register,
@@ -55,6 +57,11 @@ const SignUp = () => {
     console.log(res);
     reset();
   };
+
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <section id="form">
       <div className="form-container">
@@ -98,7 +105,8 @@ const SignUp = () => {
           </div>
           <div className="auth-input">
             <input
-              type="password"
+              className="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
               {...register("password", {
                 required: "Password cannot be empty!!",
@@ -108,6 +116,9 @@ const SignUp = () => {
                 },
               })}
             />
+            <div onClick={handleShowPassword} className="show-Password">
+              {showPassword ? <FaEye /> : <FaEyeSlash />}
+            </div>
             {errors.password && (
               <div className="error">{errors.password.message}</div>
             )}
