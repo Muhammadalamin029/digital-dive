@@ -1,8 +1,16 @@
-import React from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { auth } from "../../config/Firebase";
+import toast from "react-hot-toast";
+import { BlogContext } from "../../context/BlogContextProvider";
 
 const Login = () => {
+  const { setUser } = useContext(BlogContext);
+
+  const [loading, setLoading] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -15,8 +23,27 @@ const Login = () => {
     },
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    const { email, password } = data;
+    try {
+      setLoading(true);
+      const res = await toast.promise(
+        signInWithEmailAndPassword(auth, email, password),
+        {
+          loading: "Logging in",
+          success: "User successfully Logged in",
+          error: "an error occured",
+        }
+      );
+      if (res) {
+        setUser(true);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+
     reset();
   };
 
@@ -54,7 +81,9 @@ const Login = () => {
             )}
             <Link>Forgotten password</Link>
           </div>
-          <button className="btn">Login</button>
+          <button disabled={loading} className="btn">
+            Login
+          </button>
           <br />
         </form>
         <div className="register">

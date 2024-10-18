@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { BlogContext } from "./src/context/BlogContextProvider";
+import { BlogContext } from "../src/context/BlogContextProvider";
 import { Navigate, Outlet } from "react-router-dom";
 
 const AuthProtectedRoute = () => {

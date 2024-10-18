@@ -4,7 +4,8 @@ import { BlogContext } from "../context/BlogContextProvider";
 import { useNavigate } from "react-router-dom";
 import { addDoc, collection } from "firebase/firestore";
 import { db, storage } from "../config/Firebase";
-import { ref, uploadBytes } from "firebase/storage";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { v6 } from "uuid";
 import toast from "react-hot-toast";
 
 const ViewBlog = () => {
@@ -27,14 +28,20 @@ const ViewBlog = () => {
       return;
     }
     try {
-      const blogImageRef = ref(storage, `blogPostImage/${blogImage.name}`);
-      await uploadBytes(blogImageRef, blogImage);
+      setLoading(true);
+      const blogImageRef = ref(storage, `blogPostImage/${v6()}`);
+      const res = await uploadBytes(blogImageRef, blogImage);
+      if (res) {
+        const Url = await getDownloadURL(blogImageRef);
+        submitRef.current.imgURL = Url;
+        toast.success("Blog Published Successfully");
+        submitData(submitRef.current);
+        navigate("/blogs");
+      }
     } catch (error) {
       console.error(error);
     } finally {
-      toast.success("Blog Published Successfully");
-      submitData(submitRef.current);
-      navigate("/blogs");
+      setLoading(false);
     }
   };
 
@@ -60,7 +67,11 @@ const ViewBlog = () => {
       <p></p>
       <h3>Blog content</h3>
       <Markdown>{submitRef.current.content}</Markdown>
-      <button onClick={handleFormSubmit} className="btn button">
+      <button
+        disabled={loading}
+        onClick={handleFormSubmit}
+        className="btn button"
+      >
         PUBLISH
       </button>
     </section>

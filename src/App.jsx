@@ -17,12 +17,15 @@ import SignUp from "./pages/auth/SignUp";
 import Welcome from "./pages/Welcome";
 import ProtectedRoute from "./ProtectedRoute";
 import { Toaster } from "react-hot-toast";
-import AuthProtectedRoute from "../AuthProtectedRoute";
+import AuthProtectedRoute from "../src/AuthProtectedRoute";
+import Practice from "./Practice";
+import UserProfile from "./pages/UserProfile";
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
+        <Route element={<Practice />} path="/practice" />
         <Route element={<AuthProtectedRoute />}>
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/login" element={<Login />} />
@@ -35,6 +38,7 @@ function App() {
             <Route path="blogs/:id" element={<Blog />} loader={blogLoader} />
             <Route path="add-blog/" element={<AddBlog />} />
             <Route path="add-blog/view" element={<ViewBlog />} />
+            <Route path="user" element={<UserProfile />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Route>

@@ -201,11 +201,14 @@ textarea {
 }
 
 .author .img {
+  background-image: url(./assets/Images/Author.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   display: inline-block;
   width: 60px;
   height: 60px;
   border-radius: 100%;
-  background: #343a40;
   margin-right: 10px;
 }
 
@@ -414,13 +417,35 @@ textarea {
 /* Welcome Page */
 
 #welcome-header {
+  background-image: url("./assets/Images/Circuit.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #000000b6;
   color: #007bff;
   height: 80vh;
+  position: relative;
+}
+
+.welcome-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.714);
+  z-index: 1;
+}
+
+.welcome-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   text-align: center;
+  z-index: 1;
 }
 
 #welcome-header h1 {
@@ -502,7 +527,7 @@ textarea {
     width: 100%;
   }
 
-  form {
+  form#publishForm {
     width: 100%;
   }
 

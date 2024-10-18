@@ -40,6 +40,11 @@ const Navbar = () => {
                 Add Blog
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/user">
+                User
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>

@@ -3,9 +3,10 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { BlogContext } from "../context/BlogContextProvider";
 import Modal from "./Modal";
+import { auth } from "../config/Firebase";
 
 const Form = () => {
-  const { submitRef } = useContext(BlogContext);
+  const { submitRef, userData } = useContext(BlogContext);
   const [modal, setModal] = useState(false);
 
   const {
@@ -18,8 +19,9 @@ const Form = () => {
       category: "",
       content: "",
       publishDate: "",
-      authorName: "",
-      authorEmail: "",
+      imgURL: "",
+      authorName: userData.fullName,
+      authorEmail: userData.email,
       authorPhone: "",
     },
   });
@@ -117,18 +119,6 @@ const Form = () => {
         />
         {errors.authorName && (
           <p className="error">{errors.authorName.message}</p>
-        )}
-      </div>
-      <div className="input-field">
-        <input
-          {...register("authorEmail", {
-            required: "Enter a valid email",
-          })}
-          type="email"
-          placeholder="example@gmail.com"
-        />
-        {errors.authorEmail && (
-          <p className="error">{errors.authorEmail.message}</p>
         )}
       </div>
       <div className="input-field">

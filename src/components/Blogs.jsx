@@ -46,7 +46,7 @@ const Blogs = ({ isHome = false }) => {
     fontSize: "3rem",
   };
 
-  const allBlogs = isHome ? blogs.splice(0, 3) : blogs;
+  const allBlogs = isHome ? blogs.slice(0, 3) : blogs;
 
   return (
     <section id="blog">
@@ -57,9 +57,10 @@ const Blogs = ({ isHome = false }) => {
         allBlogs.map((blog) => (
           <div key={blog.id} className="blog-container">
             <div className="blog-item">
-              <div className="blog-image">
-                <img src="vite.svg" alt="" />
-              </div>
+              <div
+                style={{ backgroundImage: `url(${blog.imgURL})` }}
+                className="blog-image"
+              ></div>
               <div className="blog-content">
                 <div className="author">
                   <div className="img"></div>

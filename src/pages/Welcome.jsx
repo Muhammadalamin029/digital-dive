@@ -7,12 +7,17 @@ const Welcome = () => {
   const navigate = useNavigate();
   return (
     <>
-      <section className="section" id="welcome-header">
-        <h1 className="welcome-header">Welcome to Digital Dive</h1>
-        <h3 className="welcome-subheader">Explore the Depths of Technology</h3>
-        <Link className="CTA-btn btn" to="/login">
-          Get Started
-        </Link>
+      <section id="welcome-header">
+        <div className="welcome-overlay"></div>
+        <div className="welcome-content">
+          <h1 className="welcome-header">Welcome to Digital Dive</h1>
+          <h3 className="welcome-subheader">
+            Explore the Depths of Technology
+          </h3>
+          <Link className="CTA-btn btn" to="/login">
+            Get Started
+          </Link>
+        </div>
       </section>
       <section id="features-sec">
         <h2>Unlock Exclusive Contents</h2>

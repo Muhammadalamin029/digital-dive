@@ -1,8 +1,17 @@
-import React, { useState } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { auth, db } from "../../config/Firebase";
+import toast from "react-hot-toast";
+import { BlogContext } from "../../context/BlogContextProvider";
+import { doc, setDoc } from "firebase/firestore";
 
 const SignUp = () => {
+  const { setUser } = useContext(BlogContext);
+
+  const [loading, setLoading] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -10,15 +19,44 @@ const SignUp = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
+      fullName: "",
       username: "",
       email: "",
       password: "",
-      confirmPassword: "",
     },
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    const { email, password, username, fullName } = data;
+
+    try {
+      setLoading(true);
+      const res = await toast.promise(
+        createUserWithEmailAndPassword(auth, email, password),
+        {
+          loading: "Signing up",
+          success: "User successfully created",
+          error: "an error occured",
+        }
+      );
+      if (res) {
+        const UID = res.user.uid;
+
+        await setDoc(doc(db, "Users", UID), {
+          id: UID,
+          fullName,
+          username,
+          email,
+        });
+        setUser(true);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+
+    console.log(res);
     reset();
   };
   return (
@@ -26,6 +64,18 @@ const SignUp = () => {
       <div className="form-container">
         <h1>Sign Up</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="auth-input">
+            <input
+              type="text"
+              placeholder="FullName"
+              {...register("fullName", {
+                required: "Input field cannot be empty",
+              })}
+            />
+            {errors.fullName && (
+              <div className="error">{errors.fullName.message}</div>
+            )}
+          </div>
           <div className="auth-input">
             <input
               type="text"
@@ -66,19 +116,9 @@ const SignUp = () => {
               <div className="error">{errors.password.message}</div>
             )}
           </div>
-          <div className="auth-input">
-            <input
-              type="password"
-              placeholder="Confirm Password"
-              {...register("confirmPassword", {
-                required: "Password does not match!!",
-              })}
-            />
-            {errors.confirmPassword && (
-              <div className="error">{errors.confirmPassword.message}</div>
-            )}
-          </div>
-          <button className="btn">Register</button>
+          <button disabled={loading} className="btn">
+            Register
+          </button>
           <br />
         </form>
         <div className="register">
