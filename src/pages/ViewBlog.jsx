@@ -30,6 +30,8 @@ const ViewBlog = () => {
       }
     } catch (error) {
       console.error(error);
+    } finally {
+      navigate("/");
     }
   };
 
@@ -55,9 +57,7 @@ const ViewBlog = () => {
       }
     } catch (error) {
       console.error(error);
-    } finally {
-      navigate("/");
-    }
+    } 
   };
 
   return (
