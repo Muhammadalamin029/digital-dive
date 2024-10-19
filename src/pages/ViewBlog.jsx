@@ -18,7 +18,7 @@ const ViewBlog = () => {
   const submitData = async (data) => {
     try {
       const publish = await toast.promise(
-        setDoc(doc(db, "blogs", randomAlphanumeric(10, "lowercase")), data),
+        setDoc(doc(db, "blogs", randomAlphanumeric(14, "lowercase")), data),
         {
           loading: "publishing",
           success: "Blog Published Successfully",
@@ -57,7 +57,7 @@ const ViewBlog = () => {
       }
     } catch (error) {
       console.error(error);
-    } 
+    }
   };
 
   return (

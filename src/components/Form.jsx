@@ -5,7 +5,7 @@ import { BlogContext } from "../context/BlogContextProvider";
 import Modal from "./Modal";
 
 const Form = () => {
-  const { submitRef, userData } = useContext(BlogContext);
+  const { submitRef } = useContext(BlogContext);
   const [modal, setModal] = useState(false);
 
   const {
@@ -19,8 +19,7 @@ const Form = () => {
       content: "",
       publishDate: "",
       imgURL: "",
-      authorName: userData.fullName,
-      authorEmail: userData.email,
+      authorName: "",
       authorPhone: "",
     },
   });
