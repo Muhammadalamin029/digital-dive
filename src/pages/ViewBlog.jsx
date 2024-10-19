@@ -1,12 +1,13 @@
 import React, { useContext, useState } from "react";
 import Markdown from "react-markdown";
 import { BlogContext } from "../context/BlogContextProvider";
-import { useNavigate } from "react-router-dom";
-import { addDoc, collection } from "firebase/firestore";
+import { Navigate, useNavigate } from "react-router-dom";
+import { setDoc, doc } from "firebase/firestore";
 import { db, storage } from "../config/Firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { v6 } from "uuid";
 import toast from "react-hot-toast";
+import { randomAlphanumeric } from "random-string-alphanumeric-generator";
 
 const ViewBlog = () => {
   const [blogImage, setBlogImage] = useState(null);
@@ -14,10 +15,22 @@ const ViewBlog = () => {
 
   const { submitRef } = useContext(BlogContext);
 
-  const blogDataRef = collection(db, "blogs");
-
   const submitData = async (data) => {
-    await addDoc(blogDataRef, data);
+    try {
+      const publish = await toast.promise(
+        setDoc(doc(db, "blogs", randomAlphanumeric(10, "lowercase")), data),
+        {
+          loading: "publishing",
+          success: "Blog Published Successfully",
+          error: "Blog unable to publish",
+        }
+      );
+      if (publish) {
+        setLoading(false);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const navigate = useNavigate();
@@ -30,18 +43,20 @@ const ViewBlog = () => {
     try {
       setLoading(true);
       const blogImageRef = ref(storage, `blogPostImage/${v6()}`);
-      const res = await uploadBytes(blogImageRef, blogImage);
+      const res = await toast.promise(uploadBytes(blogImageRef, blogImage), {
+        loading: "Uploading image",
+        success: "Image Successfully uploaded",
+        error: "Image not uploaded",
+      });
       if (res) {
         const Url = await getDownloadURL(blogImageRef);
         submitRef.current.imgURL = Url;
-        toast.success("Blog Published Successfully");
         submitData(submitRef.current);
-        navigate("/blogs");
       }
     } catch (error) {
       console.error(error);
     } finally {
-      setLoading(false);
+      navigate("/");
     }
   };
 

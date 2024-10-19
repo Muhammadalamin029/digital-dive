@@ -13,6 +13,7 @@
     "@google/generative-ai": "^0.21.0",
     "bootstrap": "^5.3.3",
     "firebase": "^10.14.1",
+    "random-string-alphanumeric-generator": "^0.12.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.0",

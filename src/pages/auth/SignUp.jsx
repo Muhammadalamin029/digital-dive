@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { auth, db } from "../../config/Firebase";
 import toast from "react-hot-toast";
 import { doc, setDoc } from "firebase/firestore";
-import { FaEye, FaEyeDropper, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const SignUp = () => {
   const [loading, setLoading] = useState(false);
