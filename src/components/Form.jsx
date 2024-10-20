@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { BlogContext } from "../context/BlogContextProvider";
 import Modal from "./Modal";
 
-const Form = () => {
+const Form = ({ data }) => {
   const { submitRef } = useContext(BlogContext);
   const [modal, setModal] = useState(false);
 
@@ -19,8 +19,9 @@ const Form = () => {
       content: "",
       publishDate: "",
       imgURL: "",
-      authorName: "",
+      authorName: data.fullName,
       authorPhone: "",
+      authorEmail: data.email,
     },
   });
 
@@ -103,22 +104,6 @@ const Form = () => {
         )}
       </div>
       <h2>Author's Details</h2>
-      <div className="input-field">
-        <input
-          {...register("authorName", {
-            required: "Enter name!!",
-            minLength: {
-              value: 8,
-              message: "Name must be more than 8 characters",
-            },
-          })}
-          type="text"
-          placeholder="Author's name"
-        />
-        {errors.authorName && (
-          <p className="error">{errors.authorName.message}</p>
-        )}
-      </div>
       <div className="input-field">
         <input
           {...register("authorPhone", {

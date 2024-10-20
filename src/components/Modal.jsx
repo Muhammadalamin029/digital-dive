@@ -4,7 +4,6 @@ import Markdown from "react-markdown";
 import { Link } from "react-router-dom";
 import { FaX } from "react-icons/fa6";
 import { ClipLoader } from "react-spinners";
-import Loader from "./Loader";
 
 const Modal = ({ setModal }) => {
   const [inputPrompt, setInputPrompt] = useState("");

@@ -16,7 +16,12 @@ const Blog = () => {
       </Link>
       <br />
       <br />
-      <div className="blog-image"></div>
+      <div
+        style={{
+          backgroundImage: `url(${blog.imgURL})`,
+        }}
+        className="blog-image"
+      ></div>
       <br />
       <br />
       <h1>{blog.title} </h1>

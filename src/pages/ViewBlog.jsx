@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import Markdown from "react-markdown";
 import { BlogContext } from "../context/BlogContextProvider";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { setDoc, doc } from "firebase/firestore";
 import { db, storage } from "../config/Firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
