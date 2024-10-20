@@ -11,20 +11,18 @@ const UpdateUserModal = ({ userData, setUserModal }) => {
   const { register, handleSubmit } = useForm({
     defaultValues: {
       name: userData?.fullName,
-      email: userData?.email,
       username: userData?.username,
     },
   });
 
   const onSubmit = async (data) => {
-    const { name, email, username } = data;
+    const { name, username } = data;
     const docRef = doc(db, "Users", userData.id);
     try {
       await toast.promise(
         updateDoc(docRef, {
           username,
           fullName: name,
-          email,
         }),
         {
           loading: "Updating...",
@@ -47,7 +45,6 @@ const UpdateUserModal = ({ userData, setUserModal }) => {
         <div className="modal-input">
           <h2>Update user data</h2>
           <input type="text" {...register("name")} />
-          <input type="text" {...register("email")} />
           <input type="text" {...register("username")} />
           <br />
           <button className="btn modal-button">GENERATE</button>
