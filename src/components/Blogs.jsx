@@ -63,7 +63,10 @@ const Blogs = ({ isHome = false }) => {
               ></div>
               <div className="blog-content">
                 <div className="author">
-                  <div className="img"></div>
+                  <div
+                    style={{ backgroundImage: `url(${blog.authorURL})` }}
+                    className="img"
+                  ></div>
                   <div className="author-details">
                     <p>{blog.authorName}</p>
                     <p>{blog.publishDate}</p>

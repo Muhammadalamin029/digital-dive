@@ -560,7 +560,7 @@ input.password {
 }
 
 .user-profile-pic {
-  background-image: url("./assets/Images/IMG-20241020-WA0007.jpg");
+  /* background-image: url("./assets/Images/IMG-20241020-WA0007.jpg"); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

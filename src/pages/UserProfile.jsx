@@ -5,10 +5,12 @@ import { BlogContext } from "../context/BlogContextProvider";
 import { doc, getDoc } from "firebase/firestore";
 import { useLoaderData } from "react-router-dom";
 import UpdateUserModal from "../components/UpdateUserModal";
+import UserProfileModal from "../components/UserProfileModal";
 
 const UserProfile = () => {
   const { userData, setUserData } = useContext(BlogContext);
   const [userModal, setUserModal] = useState(false);
+  const [userProfilePic, setUserProfilePic] = useState(false);
   const data = useLoaderData();
 
   setUserData(data);
@@ -25,7 +27,10 @@ const UserProfile = () => {
     <section className="section">
       <div className="user-data">
         <div className="profile-pic-container">
-          <div className="user-profile-pic"></div>
+          <div
+            style={{ backgroundImage: `url(${userData.imgURL})` }}
+            className="user-profile-pic"
+          ></div>
           <div className="user-profile-details">
             <h1>{userData.fullName}</h1>
             <p className="user-details username">@{userData.username}</p>
@@ -39,7 +44,18 @@ const UserProfile = () => {
           <button onClick={() => setUserModal(!userModal)} className="btn">
             Update user data
           </button>
-          <button className="btn">Updata profile pic</button>
+          {userProfilePic && (
+            <UserProfileModal
+              setUserProfilePic={setUserProfilePic}
+              userData={userData}
+            />
+          )}
+          <button
+            onClick={() => setUserProfilePic(!userProfilePic)}
+            className="btn"
+          >
+            Updata profile pic
+          </button>
         </div>
       </div>
       <button className="btn button" onClick={handleLogOut}>

@@ -22,6 +22,7 @@ const Form = ({ data }) => {
       authorName: data.fullName,
       authorPhone: "",
       authorEmail: data.email,
+      authorURL: data.imgURL,
     },
   });
 
