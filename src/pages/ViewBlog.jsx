@@ -20,7 +20,7 @@ const ViewBlog = () => {
       const publish = await toast.promise(
         setDoc(doc(db, "blogs", randomAlphanumeric(14, "lowercase")), data),
         {
-          loading: "publishing",
+          loading: "Publishing",
           success: "Blog Published Successfully",
           error: "Blog unable to publish",
         }

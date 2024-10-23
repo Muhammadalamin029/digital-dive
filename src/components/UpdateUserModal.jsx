@@ -47,7 +47,7 @@ const UpdateUserModal = ({ userData, setUserModal }) => {
           <input type="text" {...register("name")} />
           <input type="text" {...register("username")} />
           <br />
-          <button className="btn modal-button">GENERATE</button>
+          <button className="btn modal-button">UPDATE</button>
         </div>
       </form>
     </div>

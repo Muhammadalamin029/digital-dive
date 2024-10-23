@@ -19,7 +19,7 @@ const UserProfileModal = ({ setUserProfilePic, userData }) => {
           <input onChange={handleImageUpload} type="file" />
           <br />
           <button onClick={uploadImage} className="btn modal-button">
-            GENERATE
+            UPDATE
           </button>
         </div>
       </div>
