@@ -629,6 +629,23 @@ input.password {
   color: #ffffff;
 }
 
+.comment-box {
+  width: 100%;
+  height: 200px;
+}
+
+.comment-user {
+  display: block;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.comment-message {
+  font-weight: 500;
+  font-size: 1.8rem;
+  color: #605353e5;
+}
+
 @media (max-width: 768px) {
   .modal .modal-content {
     width: 100%;

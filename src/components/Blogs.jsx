@@ -74,7 +74,7 @@ const Blogs = ({ isHome = false }) => {
                 </div>
                 <h1 className="blog-headline">{blog.title}</h1>
                 <p className="link">
-                  <Link>
+                  <Link to={`/blogs/${blog.id}/#comment`}>
                     <span>Comment</span> <FaComment />
                   </Link>
                   <Link

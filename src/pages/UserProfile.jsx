@@ -28,13 +28,13 @@ const UserProfile = () => {
       <div className="user-data">
         <div className="profile-pic-container">
           <div
-            style={{ backgroundImage: `url(${userData.imgURL})` }}
+            style={{ backgroundImage: `url(${userData?.imgURL})` }}
             className="user-profile-pic"
           ></div>
           <div className="user-profile-details">
-            <h1>{userData.fullName}</h1>
-            <p className="user-details username">@{userData.username}</p>
-            <p className="user-details">{userData.email}</p>
+            <h1>{userData?.fullName}</h1>
+            <p className="user-details username">@{userData?.username}</p>
+            <p className="user-details">{userData?.email}</p>
           </div>
         </div>
         <div className="update-user-data">

@@ -46,6 +46,8 @@ const SignUp = () => {
           fullName,
           username,
           email,
+          imgURL:
+            "https://firebasestorage.googleapis.com/v0/b/digital-dive.appspot.com/o/profilePic%2FIMG-20241020-WA0007.jpg?alt=media&token=35c78181-94d6-4227-886c-9c218b9a5881",
         });
       }
     } catch (error) {

@@ -4,6 +4,7 @@ import Markdown from "react-markdown";
 import { useParams, useLoaderData, Link } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../config/Firebase";
+import Comments from "../components/Comments";
 
 const Blog = () => {
   const { id } = useParams();
@@ -40,6 +41,11 @@ const Blog = () => {
           <span>Phone Number:</span> {blog.authorPhone}
         </p>
       </div>
+      <br />
+      <hr />
+      <br />
+      <h2>Comments Section</h2>
+      <Comments id={id} />
     </section>
   );
 };

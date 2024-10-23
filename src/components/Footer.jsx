@@ -5,24 +5,25 @@ import {
   FaInstagram,
   FaXTwitter,
 } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const date = new Date().getFullYear();
   return (
     <section className="footer">
       <div className="icons">
-        <a href="">
+        <Link to="#">
           <FaFacebook className="a" />
-        </a>
-        <a href="">
+        </Link>
+        <Link to="#">
           <FaInstagram className="a" />
-        </a>
-        <a href="">
+        </Link>
+        <Link to="#">
           <FaYoutube className="a" />
-        </a>
-        <a href="">
+        </Link>
+        <Link to="#">
           <FaXTwitter className="a" />
-        </a>
+        </Link>
       </div>
       <p>&copy;{`Copyright ${date} Digital Dive, All rights reserved`}</p>
     </section>
