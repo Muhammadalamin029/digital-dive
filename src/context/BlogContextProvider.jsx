@@ -11,16 +11,11 @@ const BlogContextProvider = ({ children }) => {
   const [userData, setUserData] = useState({});
 
   useEffect(() => {
-    const userState = async () => {
-      try {
-        await onAuthStateChanged(auth, (currentUser) => {
-          setUser(currentUser);
-        });
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    userState();
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+
+    return () => unsubscribe();
   }, []);
 
   return (

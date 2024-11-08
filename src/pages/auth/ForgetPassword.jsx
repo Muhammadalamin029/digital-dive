@@ -26,7 +26,7 @@ const ForgetPassword = () => {
       await toast.promise(sendPasswordResetEmail(auth, email), {
         loading: "Sending email",
         success: "Email succesfully sent",
-        error: "Email not found",
+        error: (e) => `${e}`,
       });
     } catch (error) {
       console.error(error);

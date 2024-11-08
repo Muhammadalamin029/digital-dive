@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { setDoc, doc } from "firebase/firestore";
 import { db, storage } from "../config/Firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { v6 } from "uuid";
 import toast from "react-hot-toast";
 import { randomAlphanumeric } from "random-string-alphanumeric-generator";
 
@@ -44,7 +43,10 @@ const ViewBlog = () => {
     }
     try {
       setLoading(true);
-      const blogImageRef = ref(storage, `blogPostImage/${v6()}`);
+      const blogImageRef = ref(
+        storage,
+        `blogPostImage/${randomAlphanumeric(14, "lowercase")}`
+      );
       const res = await toast.promise(uploadBytes(blogImageRef, blogImage), {
         loading: "Uploading image",
         success: "Image Successfully uploaded",
